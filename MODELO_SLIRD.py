@@ -3,6 +3,7 @@ from dash import Dash, dcc, html, Input, Output  # Dash es para la creación de 
 import numpy as np  # Usado para crear y manejar arrays y cálculos numéricos.
 from scipy.integrate import odeint  # Para resolver ecuaciones diferenciales.
 import plotly.graph_objects as go  # Para crear gráficos interactivos.
+import os
 
 # Es necesario instalar estas librerías antes de ejecutar el código:
 # pip install dash
@@ -183,5 +184,6 @@ def update_graph(beta, rho, delta, alpha, lambda_, gamma):
 
 # Ejecutamos el servidor
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
+
 

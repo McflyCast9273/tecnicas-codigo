@@ -2,6 +2,7 @@
 from dash import Dash, dcc, html, Input, Output  # Dash para la interfaz y componentes interactivos
 import numpy as np  # Para realizar cálculos y manejar datos numéricos
 from scipy.integrate import odeint  # Para resolver ecuaciones diferenciales
+import os
 
 # Es necesario instalar estas librerías antes de ejecutar el código:
 # pip install dash
@@ -162,4 +163,4 @@ def update_graph(beta, rho, delta, alpha, lambda_):
 
 # Ejecutamos la aplicación en el host local
 if __name__ == "__main__":
-    app.run_server(debug=True, host='localhost', port=8050)
+    app.run_server(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
